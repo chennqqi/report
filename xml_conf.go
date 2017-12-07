@@ -938,12 +938,25 @@ const (
           <w:fldChar w:fldCharType="begin"/>
         </w:r>
         <w:r>
+          <w:instrText> HYPERLINK "%s" </w:instrText>
+        </w:r>
+        <w:r>
+          <w:fldChar w:fldCharType="separate"/>
+        </w:r>
+`
+
+	//XMLImageLinkTitle hyperlink start
+	XMLImageLinkArchorTitle = `<w:r>
+          <w:fldChar w:fldCharType="begin"/>
+        </w:r>
+        <w:r>
           <w:instrText> HYPERLINK \l "%s" </w:instrText>
         </w:r>
         <w:r>
           <w:fldChar w:fldCharType="separate"/>
         </w:r>
 `
+
 	//XMLImageLinkEnd hyper link end
 	XMLImageLinkEnd = `<w:r>
 <w:fldChar w:fldCharType="end"/>

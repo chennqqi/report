@@ -485,9 +485,16 @@ func (doc *Report) WriteImage(withtext bool, text string, imagesData ...*Image) 
 		height := imagedata.Height
 		width := imagedata.Width
 		hyperlink := imagedata.Hyperlink
+
 		//embedding hyperlink
-		if hyperlink != "" {
+		if strings.HasPrefix(hyperlink, "http://") ||
+			strings.HasPrefix(hyperlink, "https://") ||
+			strings.HasPrefix(hyperlink, "ftp://") ||
+			strings.HasPrefix(hyperlink, "ftps://") {
 			imageLink := fmt.Sprintf(XMLImageLinkTitle, hyperlink)
+			xmlimage.WriteString(imageLink)
+		} else if hyperlink != "" {
+			imageLink := fmt.Sprintf(XMLImageLinkArchorTitle, hyperlink)
 			xmlimage.WriteString(imageLink)
 		}
 		bindata, err := getImagedata(imageSrc)
